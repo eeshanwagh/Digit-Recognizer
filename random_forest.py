@@ -10,12 +10,6 @@ import csv
 ## Eeshan Wagh
 
 
-
-
-
-
-
-
 print "Reading Data"
 data = pd.read_csv('train.csv')
 test = pd.read_csv('test.csv')
@@ -29,12 +23,19 @@ X = data[columns[1:]]
 
 print "Construting Random Forest"
 rf = RandomForestClassifier(n_estimators=1000, n_jobs=10)
+
+## Cross Validation to estimate how good model is 
 #scores = cross_val_score(rf,X,Y)
 #print scores.mean()
+
 print "Estimating Random Forest Parameters"
 
 rf.fit(X, Y)
 predictions = rf.predict(test)
+
+
+print "Writing to Output"
+
 output = [] 
 for i in range(len(predictions)):
 	output.append([i+1, predictions[i]])
