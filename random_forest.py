@@ -22,7 +22,7 @@ X = data[columns[1:]]
 ## Random Forest
 
 print "Construting Random Forest"
-rf = RandomForestClassifier(n_estimators=1000, n_jobs=10)
+rf = RandomForestClassifier(n_estimators=1000, n_jobs=4)
 
 ## Cross Validation to estimate how good model is 
 #scores = cross_val_score(rf,X,Y)
